@@ -105,7 +105,7 @@ def create_credentials():
     # created automatically when the authorization flow completes for the first
     # time.
     # Saharsh -- need to change this
-    sub_folder = ""#"Test/"
+    sub_folder = "Test/"
     if os.path.exists(sub_folder+"token.json"):
         creds = Credentials.from_authorized_user_file(filename=sub_folder+"token.json", scopes=SCOPES)
     # If there are no (valid) credentials available, let the user log in.
