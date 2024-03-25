@@ -4,6 +4,18 @@ from . import Google
 
 @csrf_exempt
 def index(request):
+    print("here123")
+    if request.method == "POST":
+        print("post")
+        print("a: ",request.GET.get('a'))
+        print("b: ",request.GET.get('b'))
+        print("c: ",request.GET.get("c"))
+        print("d: ",request.GET.get("d"))
+    return render(request, "Test/index.html")
+
+
+@csrf_exempt
+def home(request):
     print("here")
     if request.method == "POST":
         print("post")
@@ -13,4 +25,3 @@ def index(request):
         print("d: ",request.GET.get("d"))
     Google.main()
     return render(request, "Test/index.html")
-
