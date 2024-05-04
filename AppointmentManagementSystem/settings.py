@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import os
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -115,13 +114,13 @@ USE_I18N = True
 USE_TZ = True
 
 STATICFILES_DIRS = (
-    BASE_DIR/"mystaticfiles",
+    BASE_DIR/"AppointmentManagementSystem/mystaticfiles",
 )
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 # STATIC_ROOT = os.path.join(BASE_DIR, "/AppointmentManagementSystem/mystaticfiles/")
-STATIC_URL = str(BASE_DIR/"mystaticfiles/").replace("\\","/")
+STATIC_URL = str(BASE_DIR/"AppointmentManagementSystem/mystaticfiles/").replace("\\","/")
 STATIC_URL +="/"
 print("STATIC_URL: "+STATIC_URL)
 # Default primary key field type
