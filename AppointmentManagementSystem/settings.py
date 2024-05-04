@@ -15,7 +15,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -114,13 +114,13 @@ USE_I18N = True
 USE_TZ = True
 
 STATICFILES_DIRS = (
-    BASE_DIR/"AppointmentManagementSystem/mystaticfiles",
+    BASE_DIR/"mystaticfiles",
 )
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 # STATIC_ROOT = os.path.join(BASE_DIR, "/AppointmentManagementSystem/mystaticfiles/")
-STATIC_URL = str(BASE_DIR/"AppointmentManagementSystem/mystaticfiles/").replace("\\","/")
+STATIC_URL = str(BASE_DIR/"mystaticfiles/").replace("\\","/")
 STATIC_URL +="/"
 print("STATIC_URL: "+STATIC_URL)
 # Default primary key field type
