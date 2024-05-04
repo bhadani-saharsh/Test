@@ -16,8 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-print("BASE_DIR content: "+str(os.listdir(str(BASE_DIR))))
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -126,7 +124,9 @@ STATICFILES_DIRS = (
 # STATIC_ROOT = os.path.join(BASE_DIR, "/AppointmentManagementSystem/amystaticfiles/")
 STATIC_URL = str(BASE_DIR/"amystaticfiles/").replace("\\","/")
 STATIC_URL +="/"
-print("BASE_DIR content: "+str(os.listdir(str(BASE_DIR))))
+print("amystaticfiles content: "+str(os.listdir(str(BASE_DIR/"amystaticfiles/"))))
+print("amystaticfiles content: "+str(os.listdir(str(BASE_DIR/"amystaticfiles/"))))
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
