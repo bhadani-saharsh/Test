@@ -68,8 +68,8 @@ TEMPLATES = [
         },
     },
 ]
-MEDIA_ROOT = 'AppointmentManagementSystem/media'
-MEDIA_URL = 'AppointmentManagementSystem/media/'
+# MEDIA_ROOT = 'AppointmentManagementSystem/media'
+# MEDIA_URL = 'AppointmentManagementSystem/media/'
 WSGI_APPLICATION = 'AppointmentManagementSystem.wsgi.application'
 
 
