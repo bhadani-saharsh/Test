@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-%3rdoi5k&&mh0x@jqy+)l00m+0xs@43rq9k*)g21qf06t^iiud
 DEBUG = True
 
 # Saharsh - Change before deploying
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app'
+ALLOWED_HOSTS = ['.vercel.app'
     ]
 
 # Application definition
