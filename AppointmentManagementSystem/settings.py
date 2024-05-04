@@ -118,13 +118,13 @@ USE_I18N = True
 USE_TZ = True
 
 STATICFILES_DIRS = (
-    BASE_DIR/"mystaticfiles",
+    BASE_DIR/"amystaticfiles",
 )
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-# STATIC_ROOT = os.path.join(BASE_DIR, "/AppointmentManagementSystem/mystaticfiles/")
-STATIC_URL = str(BASE_DIR/"mystaticfiles/").replace("\\","/")
+# STATIC_ROOT = os.path.join(BASE_DIR, "/AppointmentManagementSystem/amystaticfiles/")
+STATIC_URL = str(BASE_DIR/"amystaticfiles/").replace("\\","/")
 STATIC_URL +="/"
 print("BASE_DIR content: "+str(os.listdir(str(BASE_DIR))))
 # Default primary key field type

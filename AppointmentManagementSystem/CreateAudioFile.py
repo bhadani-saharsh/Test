@@ -99,8 +99,8 @@ def prepare_content_for_audio_file(QueryDict):
 
 def create_audio_file(text, file_name):
     speaker = gTTS(text=text, lang="en", slow=False)
-    speaker.save("mystaticfiles/"+file_name)
-    statbuf = os.stat("mystaticfiles/"+file_name)
+    speaker.save("amystaticfiles/"+file_name)
+    statbuf = os.stat("amystaticfiles/"+file_name)
     mbytes = statbuf.st_size / 1024
     duration = mbytes / 200
     time.sleep(int(50 * duration))
