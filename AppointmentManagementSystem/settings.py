@@ -71,7 +71,7 @@ TEMPLATES = [
 ]
 # MEDIA_ROOT = 'AppointmentManagementSystem/media'
 # MEDIA_URL = 'AppointmentManagementSystem/media/'
-WSGI_APPLICATION = 'AppointmentManagementSystem.wsgi.application'
+WSGI_APPLICATION = 'AppointmentManagementSystem.wsgi.app'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -115,7 +115,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "mystaticfiles"),
+    os.path.join(BASE_DIR, "mystaticfiles").replace("\\","/"),
 )
 
 # Static files (CSS, JavaScript, Images)
