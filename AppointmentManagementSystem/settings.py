@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-%3rdoi5k&&mh0x@jqy+)l00m+0xs@43rq9k*)g21qf06t^iiud
 DEBUG = True
 
 # Saharsh - Change before deploying
-ALLOWED_HOSTS = ['.vercel.app'
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app'
     ]
 
 # Application definition
@@ -119,8 +119,9 @@ STATICFILES_DIRS = [
 ]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, "/AppointmentManagementSystem/mystaticfiles/")
+# STATIC_ROOT = os.path.join(BASE_DIR, "/AppointmentManagementSystem/mystaticfiles/")
 STATIC_URL = '/AppointmentManagementSystem/mystaticfiles/'
+print("STATIC_URL: "+STATIC_URL)
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
