@@ -10,11 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -80,7 +79,7 @@ WSGI_APPLICATION = 'AppointmentManagementSystem.wsgi.app'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR + '\\db.sqlite3',
     }
 }
 
@@ -116,16 +115,15 @@ USE_I18N = True
 USE_TZ = True
 
 STATICFILES_DIRS = (
-    BASE_DIR/"amystaticfiles",
+    BASE_DIR+"\\amystaticfiles",
 )
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 # STATIC_ROOT = os.path.join(BASE_DIR, "/AppointmentManagementSystem/amystaticfiles/")
-STATIC_URL = str(BASE_DIR/"amystaticfiles/").replace("\\","/")
-STATIC_URL +="/"
-print("amystaticfiles content: "+str(os.listdir(str(BASE_DIR/"amystaticfiles/"))))
-print("amystaticfiles content: "+str(os.listdir(str(BASE_DIR/"amystaticfiles/"))))
+# STATIC_URL = str(BASE_DIR+"\\amystaticfiles/")
+STATIC_URL = "/amystaticfiles/"
+print("STATIC_URL: "+STATIC_URL)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
