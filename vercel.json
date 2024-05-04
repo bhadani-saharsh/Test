@@ -1,13 +1,13 @@
 {
   "builds": [{
-    "src": "Test/wsgi.py",
+    "src": "AppointmentManagementSystem/wsgi.py",
     "use": "@vercel/python",
     "config": {"maxLambdaSize":  "15mb", "runtime":  "python3.9"}
   }],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "Test/wsgi.py"
+      "dest": "AppointmentManagementSystem/wsgi.py"
     }
   ]
 }
