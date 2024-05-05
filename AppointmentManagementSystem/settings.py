@@ -122,7 +122,7 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 # STATIC_ROOT = os.path.join(BASE_DIR, "/AppointmentManagementSystem/amystaticfiles/")
 # STATIC_URL = str(BASE_DIR+"\\amystaticfiles/")
-STATIC_URL = "/amystaticfiles/"
+STATIC_URL = "./amystaticfiles/"
 print("STATIC_URL: "+STATIC_URL)
 
 # Default primary key field type

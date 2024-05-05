@@ -37,8 +37,8 @@ def share_details_with_clinic(msgPlain):
         msg.set_content(msgPlain)
         msg['Subject'] = "New Appointment Booked by AI"
         msg['From'] = "saharsh.bhadani.official@gmail.com"
-        msg['To'] = "Saharsh.Bhadani@gmail.com"
-        # msg['To'] = "Dr.HarshitBhadani@gmail.com"
+        # msg['To'] = "Saharsh.Bhadani@gmail.com"
+        msg['To'] = "Dr.HarshitBhadani@gmail.com"
         message = {'raw': base64.urlsafe_b64encode(msg.as_bytes()).decode()}
         try:
             send_message = (service.users().messages().send(userId="me",body=message).execute())
@@ -63,7 +63,7 @@ def create_credentials():
     # created automatically when the authorization flow completes for the first
     # time.
     # Saharsh -- need to change this to run on server
-    sub_folder = "/"#/AppointmentManagementSystem/"
+    sub_folder = "/AppointmentManagementSystem/"
     if os.path.exists(os.getcwd()+sub_folder+"gmail-token.json"):
         creds = Credentials.from_authorized_user_file(filename=os.getcwd()+sub_folder+"gmail-token.json", scopes=SCOPES)
     # If there are no (valid) credentials available, let the user log in.
