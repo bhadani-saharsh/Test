@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dr. Bhadani's Dental Clinic</title>
+</head>
+<body>
+<h1>AI Based Appointment Management System</h1>
+<table>
+    <tr style="align: Top">
+        <td style="width: 50%;">
+            <form action="/confirm/" method="POST">
+                {% csrf_token %}
+                <table border="0 px">
+                <tr>
+                    <td style="width: 30%;">Email*</td>
+                    <td style="width: 70%;"><input type="email" id="email" name="email" size="50" value="{{ email }}"> </td>
+                </tr>
+                <tr>
+                    <td>Full Name*</td>
+                    <td><input type="text" id="fullname" name="fullname" size="50" value="{{ fullname }}" required></td>
+                </tr>
+                <tr>
+                    <td>Mobile Number*</td>
+                    <td><input type="tel" id="phone" name="phone" pattern="[0-9]{10}" size="50" value="{{ phone }}" required></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <select name="gender" style="width: auto">
+                            {% if gender == "Prefer not to answer" %}
+                            <option value="Prefer not to answer" selected="selected">Perfer not to Answer</option>
+                            {% else %}
+                            <option value="Prefer not to answer" >Perfer not to Answer</option>
+                            {% endif %}
+                            {% if gender == "female" %}
+                            <option value="female" selected="selected">Female</option>
+                            {% else %}
+                            <option value="female">Female</option>
+                            {% endif %}
+                            {% if gender == "male" %}
+                            <option value="male" selected="selected">Male</option>
+                            {% else %}
+                            <option value="male">Male</option>
+                            {% endif %}
+                            {% if gender == "other" %}
+                            <option value="other" selected="selected">Other</option>
+                            {% else %}
+                            <option value="other">Other</option>
+                            {% endif %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date*</td>
+                    <td><input name="somedate" type="date" min="2024-05-03" size="50" value="{{ somedate }}" required></td>
+                    <script type="text/javascript">
+                        var today = new Date().toISOString().split('T')[0];
+                        document.getElementsByName("somedate")[0].setAttribute('min', today);
+                    </script>
+                </tr>
+                <tr>
+                    <td>Time*</td>
+                    <td><input type="time" id="appt" name="appt" size="50" value="{{ appt }}" required></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>
+                        <textarea name="address" rows="5" cols="52" >{{ address }}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Chief Complaints*</td>
+                    <td>
+                          <textarea name="complaints" rows="5" cols="52" required>{{ complaints }}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <center>
+                            <input type="reset" value="Cancel">
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <input type="submit" value="Confirm">
+                        </center>
+                    </td>
+                </tr>
+            </table>
+                <input type="text" id="file_name" name="file_name" hidden="hidden" value="{{ file_name }}">
+            </form>
+        </td>
+        <td style="width: 50%">
+            <img id="right-side-image1" src="https://media.licdn.com/dms/image/D5612AQHyZAlKMTOc0w/article-cover_image-shrink_720_1280/0/1678039642851?e=1720656000&v=beta&t=uQtq7Pf7w30nwYBoD8io_hMGL6FF_72D7k2Oj2Ml8RI" alt="Dynamic Image" height="500" width="auto">
+            <audio autoplay>
+                <source id="audio_source" src="{% static file_name %}" type="audio/mpeg">
+                <script>
+                    var audio_file = "{{ file_name }}"
+                    document.getElementById("audio_source").src.replace("file_name", audio_file);
+                </script>
+            </audio>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

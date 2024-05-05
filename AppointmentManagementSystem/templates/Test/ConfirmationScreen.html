@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dr. Bhadani's Dental Clinic</title>
+</head>
+<body>
+<h1>AI Based Appointment Management System</h1>
+<table>
+    <tr style="align: Top">
+        <td style="width: 50%;">
+            <center>
+                {% if response == "OK" %}
+                <h1>Your appointment details are shared with the clinic. We will contact you soon!</h1>
+                {% else %}
+                <h1>Your appointment details could not be shared with the clinic. Please call/WhatsApp us at
+                    7980860185 or Email to Dr.HarshitBhadani@gmail.com</h1>
+                {% endif %}
+            </center>
+
+        </td>
+        <td style="width: 50%">
+            <img id="right-side-image1" src="https://drive.google.com/file/d/1-L1kzbyRuCxHZ3GiJwleUXlVzk8OMecw/view?usp=sharing" alt="Dynamic Image" height="500" width="auto">
+            <audio autoplay>
+                <source src="https://drive.google.com/file/d/1kVgeejqKW4bj5-qGBWYs1yIyfq5Zh0xM/view?usp=sharing" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

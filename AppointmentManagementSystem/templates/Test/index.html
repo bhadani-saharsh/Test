@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dr. Bhadani's Dental Clinic</title>
+</head>
+<body>
+<h1>AI Based Appointment Management System</h1>
+<!-- Hi! I am Mark, the AI assistant, of Doctor Bhhaadaa nees Dental Clinic. I am here to help you in
+booking your appointment.-->
+
+<table>
+    <tr style="align: Top">
+        <td style="width: 50%;">
+            <form action="/verify/" method="POST">
+                {% csrf_token %}
+                <table border="0 px">
+                <tr>
+                    <td style="width: 30%;">Email*</td>
+                    <td style="width: 70%;"><input type="email" id="email" name="email" size="50"> </td>
+                </tr>
+                <tr>
+                    <td>Full Name*</td>
+                    <td><input type="text" id="fullname" name="fullname" size="50" required></td>
+                </tr>
+                <tr>
+                    <td>Mobile Number*</td>
+                    <td><input type="tel" id="phone" name="phone" pattern="[0-9]{10}" size="50" required></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <select name="gender" style="width: auto">
+                            <option value="Prefer not to answer">Perfer not to Answer</option>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date*</td>
+                    <td><input name="somedate" type="date" min="2024-05-03" size="50" required></td>
+                    <script type="text/javascript">
+                        var today = new Date().toISOString().split('T')[0];
+                        document.getElementsByName("somedate")[0].setAttribute('min', today);
+                    </script>
+                </tr>
+                <tr>
+                    <td>Time*</td>
+                    <td><input type="time" id="appt" name="appt" size="50" required></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>
+                        <textarea name="address" rows="5" cols="52"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Chief Complaints*</td>
+                    <td>
+                          <textarea name="complaints" rows="5" cols="52" required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <center>
+                            <input type="reset">
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <input type="submit" value="Submit">
+                        </center>
+                    </td>
+                </tr>
+            </table>
+                <input type="text" id="file_name" name="file_name" hidden="hidden">
+                <script>
+                    var date_today = new Date().toISOString();
+                    time_stamp = date_today.split('T')[1].replace(/:/g,"-")
+                    time_stamp_1 = time_stamp.replace(".","-")
+                    var name_of_file = "audio" + date_today.split('T')[0] + time_stamp_1 + ".mp3"
+                    document.getElementById("file_name").value = name_of_file.replace(/ /g,"");
+                </script>
+
+            </form>
+        </td>
+        <td style="width: 50%">
+            <img id="right-side-image1" src="{% static  'img/BotDynamic.gif' %}" alt="Dynamic Image" height="500" width="auto">
+
+            <audio id="welcome-audio" autoplay>
+                <source src="{% static 'img/Welcome.mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
