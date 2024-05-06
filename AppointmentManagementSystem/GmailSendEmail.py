@@ -63,20 +63,21 @@ def create_credentials():
     # created automatically when the authorization flow completes for the first
     # time.
     # Saharsh -- need to change this to run on server
-    sub_folder = "/AppointmentManagementSystem/"
-    if os.path.exists(os.getcwd()+sub_folder+"gmail-token.json"):
-        creds = Credentials.from_authorized_user_file(filename=os.getcwd()+sub_folder+"gmail-token.json", scopes=SCOPES)
+    base_dir = os.getcwd()
+    sub_folder = base_dir + "/AppointmentManagementSystem/"
+    if os.path.exists(sub_folder+"gmail-token.json"):
+        creds = Credentials.from_authorized_user_file(filename=sub_folder+"gmail-token.json", scopes=SCOPES)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                os.getcwd()+sub_folder+"credentials.json", SCOPES
+                sub_folder+"credentials.json", SCOPES
             )
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
-        with open(os.getcwd()+sub_folder+"gmail-token.json", "w") as token:
+        with open(sub_folder+"gmail-token.json", "w") as token:
             token.write(creds.to_json())
     return creds
 

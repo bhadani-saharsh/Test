@@ -5,7 +5,7 @@ from . import Google, CreateAudioFile, GmailSendEmail
 
 @csrf_exempt
 def index(request):
-    context = {"id": "1kVgeejqKW4bj5-qGBWYs1yIyfq5Zh0xM"}
+    context = {"id": "1Vh03duUFAF5wo6whbiyhYiZrAqVRREAP"}
     return render(request, "Test/index.html", context=context)
 
 
@@ -47,6 +47,6 @@ def confirm(request):
     queryDict = request.POST
     plain_message = GmailSendEmail.create_plain_message(queryDict)
     response = GmailSendEmail.share_details_with_clinic(plain_message)
-    return render(request, "Test/ConfirmationScreen.html", context={"response": response})
+    return render(request, "Test/ConfirmationScreen.html", context={"response": response, "id":"1RXbRzGyWIizgwtYu0wpXXi9ETALl3dMP"})
 
 
