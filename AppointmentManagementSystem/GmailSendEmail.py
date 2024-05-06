@@ -7,8 +7,6 @@ from googleapiclient.errors import HttpError
 from email.message import EmailMessage
 import base64
 from datetime import datetime
-import google.auth
-
 
 
 SCOPES = ['https://mail.google.com/']
@@ -52,11 +50,6 @@ def share_details_with_clinic(msgPlain):
         return "Error"
 
 
-def create_credentials_short():
-    creds, _ = google.auth.default()
-    return creds
-
-
 def create_credentials():
     creds = None
     # The file token.json stores the user's access and refresh tokens, and is
@@ -72,14 +65,13 @@ def create_credentials():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                sub_folder+"credentials.json", SCOPES
-            )
+            flow = InstalledAppFlow.from_client_secrets_file(sub_folder+"credentials.json", SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open(sub_folder+"gmail-token.json", "w") as token:
             token.write(creds.to_json())
     return creds
+
 
 if __name__ == "__main__":
     queryDict = {'csrfmiddlewaretoken': 'KOMHyZoJj663AyA0GndPNXhyWd2MVCm7Auh7kJUDqnwZ3GvQKlMBm9QWo3bvvkCO',
