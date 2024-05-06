@@ -151,25 +151,34 @@ def create_credentials():
     # created automatically when the authorization flow completes for the first
     # time.
     # Saharsh -- need to change this to run on server
-    sub_folder = "/AppointmentManagementSystem/"
-    print(os.getcwd()+sub_folder+"gdrive-token.json: "+str(os.path.exists(os.getcwd()+sub_folder+"gdrive-token.json")))
-    print(os.getcwd()+sub_folder+sub_folder+"gdrive-token.json: "+str(os.path.exists(os.getcwd()+sub_folder+sub_folder +"gdrive-token.json")))
-    print(os.getcwd() + sub_folder + "gdrive-token.json: " + str(
-        os.path.exists(os.getcwd() + sub_folder + "gdrive-token.json")))
-    print(os.getcwd() + sub_folder + sub_folder + "gdrive-token.json: " + str(
-        os.path.exists(os.getcwd() + sub_folder + sub_folder + "gdrive-token.json")))
-    if os.path.exists(os.getcwd()+sub_folder+"gdrive-token.json"):
-        creds = Credentials.from_authorized_user_file(filename=os.getcwd()+sub_folder+"gdrive-token.json", scopes=SCOPES)
+    sub_folder = "./"#AppointmentManagementSystem/"
+    if os.path.exists(sub_folder+"gdrive-token.json"):
+        creds = Credentials.from_authorized_user_file(filename=sub_folder+"gdrive-token.json", scopes=SCOPES)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                os.getcwd()+sub_folder+"credentials.json", SCOPES
+                sub_folder+"credentials.json", SCOPES
             )
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
-        with open(os.getcwd()+sub_folder+"gdrive-token.json", "w") as token:
+        with open(sub_folder+"gdrive-token.json", "w") as token:
             token.write(creds.to_json())
     return creds
+
+if __name__ == "__main__":
+    queryDict = {'csrfmiddlewaretoken': 'KOMHyZoJj663AyA0GndPNXhyWd2MVCm7Auh7kJUDqnwZ3GvQKlMBm9QWo3bvvkCO',
+                  'email': 'saharsh.bhadani@gmail.com',
+                 'fullname': 'Saharsh Bhadani',
+                 'phone': '9168669610',
+                 'gender': 'male',
+                 'somedate': '2024-05-05',
+                 'appt': '10:00',
+                 'address': 'sdcajlsc acl',
+                 'complaints': 'lc asckas caslc ',
+                 'file_name': 'audio2024-05-0401-20-42-277Z.mp3'}
+    content_to_speak = prepare_content_for_audio_file(queryDict)
+    file_id = create_audio_file_and_upload_to_drive(content_to_speak, queryDict['file_name'])
+    print(file_id)
