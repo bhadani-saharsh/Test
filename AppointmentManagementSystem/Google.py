@@ -118,8 +118,8 @@ def create_credentials():
     # time.
     # Saharsh -- need to change this to run on server
     sub_folder = "/AppointmentManagementSystem/"
-    if os.path.exists(os.getcwd()+sub_folder+"sheets-token.json"):
-        creds = Credentials.from_authorized_user_file(filename=os.getcwd()+sub_folder+"sheets-token.json", scopes=SCOPES)
+    if os.path.exists(os.getcwd()+sub_folder+"sheets-token-json.py"):
+        creds = Credentials.from_authorized_user_file(filename=os.getcwd()+sub_folder+"sheets-token-json.py", scopes=SCOPES)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
@@ -130,7 +130,7 @@ def create_credentials():
             )
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
-        with open(os.getcwd()+sub_folder+"sheets-token.json", "w") as token:
+        with open(os.getcwd()+sub_folder+"sheets-token-json.py", "w") as token:
             token.write(creds.to_json())
     return creds
 
