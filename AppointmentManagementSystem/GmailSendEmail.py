@@ -24,7 +24,7 @@ def create_plain_message(queryDict):
     plain_text += "\n\tAppointment time: " + queryDict['appt']
     plain_text += "\n\tAddress: " + queryDict['address']
     plain_text += "\n\tChief complaints: " + queryDict['complaints']
-    plain_text += "\n\nAppointment request received on: " + datetime.now().strftime("%d-%m-%y %H:%M:%S")
+    plain_text += "\n\nAppointment request received on: " + datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     plain_text += "\n\nRegards, \nAI Assistant,\nDr. Bhadani's Dental Clinic"
     return plain_text
 

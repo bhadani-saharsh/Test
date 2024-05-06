@@ -5,13 +5,9 @@ from . import Google, CreateAudioFile, GmailSendEmail
 
 @csrf_exempt
 def index(request):
-    context = {}
-    context["id"] = "1kVgeejqKW4bj5-qGBWYs1yIyfq5Zh0xM"
+    context = {"id": "1kVgeejqKW4bj5-qGBWYs1yIyfq5Zh0xM"}
     return render(request, "Test/index.html", context=context)
 
-@csrf_exempt
-def here(request):
-    print("here")
 
 @csrf_exempt
 def home(request):
@@ -25,6 +21,7 @@ def home(request):
     print(closed_dates)
     return render(request, "Test/index.html")
 
+
 def uploaded_stream(request):
     context = {}
     if request.method == "POST":
@@ -32,7 +29,7 @@ def uploaded_stream(request):
         print(request.POST)
         content_to_speak = CreateAudioFile.prepare_content_for_audio_file(request.POST)
         print(content_to_speak)
-        CreateAudioFile.create_audio_file(content_to_speak, request.POST['file_name'])
+        file_id = CreateAudioFile.create_audio_file_and_upload_to_drive(content_to_speak, request.POST['file_name'])
         context['email'] = QueryDict['email']
         context['fullname'] = QueryDict['fullname']
         context['phone'] = QueryDict['phone']
@@ -42,7 +39,8 @@ def uploaded_stream(request):
         context['address'] = QueryDict['address']
         context['complaints'] = QueryDict['complaints']
         context['file_name'] = QueryDict['file_name']
-    return render(request, "Test/summary.html", context= context)
+        context['file_id'] = file_id
+    return render(request, "Test/summary.html", context=context)
 
 
 def confirm(request):
