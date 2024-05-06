@@ -151,7 +151,7 @@ def create_credentials():
     # created automatically when the authorization flow completes for the first
     # time.
     # Saharsh -- need to change this to run on server
-    sub_folder = "\\AppointmentManagementSystem\\"
+    sub_folder = "/AppointmentManagementSystem/"
     if os.path.exists(os.getcwd()+sub_folder+"gdrive-token.json"):
         creds = Credentials.from_authorized_user_file(filename=os.getcwd()+sub_folder+"gdrive-token.json", scopes=SCOPES)
     # If there are no (valid) credentials available, let the user log in.
