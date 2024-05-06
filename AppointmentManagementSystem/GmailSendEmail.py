@@ -57,7 +57,7 @@ def create_credentials():
     # time.
     # Saharsh -- need to change this to run on server
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    sub_folder = base_dir+"\\"#/AppointmentManagementSystem/"
+    sub_folder = base_dir+"/"#/AppointmentManagementSystem/"
     print(sub_folder)
     print(sub_folder+"gmail-token-json.py")
     if os.path.exists(sub_folder+"gmail-token-json.py"):
