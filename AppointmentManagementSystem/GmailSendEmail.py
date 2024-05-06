@@ -64,7 +64,7 @@ def create_credentials():
     # time.
     # Saharsh -- need to change this to run on server
     base_dir = os.getcwd()
-    sub_folder = base_dir + "/AppointmentManagementSystem/"
+    sub_folder = base_dir+"/AppointmentManagementSystem/"
     if os.path.exists(sub_folder+"gmail-token.json"):
         creds = Credentials.from_authorized_user_file(filename=sub_folder+"gmail-token.json", scopes=SCOPES)
     # If there are no (valid) credentials available, let the user log in.
