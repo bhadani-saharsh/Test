@@ -146,29 +146,16 @@ def upload_file_on_gdrive(file_to_upload, file_name):
 
 
 def create_credentials():
-    creds = None
-    # The file token.json stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    # Saharsh -- need to change this to run on server
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    sub_folder = base_dir + "/"  # /AppointmentManagementSystem/"
-    print(sub_folder)
-    print(sub_folder + "gdrive-token-json.py")
-    if os.path.exists(sub_folder+"gdrive-token-json.py"):
-        creds = Credentials.from_authorized_user_file(filename=sub_folder+"gdrive-token-json.py", scopes=SCOPES)
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                sub_folder+"credentials.json", SCOPES
-            )
-            creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
-        with open(sub_folder+"gdrive-token-json.py", "w") as token:
-            token.write(creds.to_json())
+    creds = Credentials(
+            token="ya29.a0AXooCgvmOu3rn86q2D0Vfb0628prVwCoJhvHwv9QXh42FXpmC5jA2dN_5pOXr7rC8ukHpBQbOE_RnyRr_KmRUSSbBpqSpTBjuZQ_I8cRP5oY_wFCOL0yxddp9v1_A9zz6U9OzJ0j4b351gfDwvpxmAEZmS1ylpzb7B0I4AaCgYKAccSARMSFQHGX2Mi3ewVZI520NgqUtapHwKRhQ0173",
+            refresh_token="1//0geZv5Ag6hshnCgYIARAAGBASNwF-L9IrxKFqz6IVvaOU_bWx1z3ZK6sdLm__sd_rr4zzQt8W4ET1yMzb_UA4FbxK0xMGAob4RY0",
+            token_uri="https://oauth2.googleapis.com/token",
+            client_id="267226879829-n4pr2506kdmj0s9prb9mder7c291bf5c.apps.googleusercontent.com",
+            client_secret="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",
+            scopes=["https://www.googleapis.com/auth/drive.file"],
+            universe_domain="googleapis.com",
+            account="",
+        )
     return creds
 
 if __name__ == "__main__":
