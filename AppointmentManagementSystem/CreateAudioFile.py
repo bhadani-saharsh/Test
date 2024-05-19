@@ -9,6 +9,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
+from . import CredentialDetails
 
 
 SCOPES = ['https://www.googleapis.com/auth/drive.file']
@@ -118,7 +119,6 @@ def create_audio_file_and_upload_to_drive(text, file_name):
 
 
 def upload_file_on_gdrive(file_to_upload, file_name):
-    import CredentialDetails
     creds = CredentialDetails.create_credentials_drive()
     try:
         # create drive api client

@@ -4,7 +4,7 @@ from googleapiclient.errors import HttpError
 from email.message import EmailMessage
 import base64
 from datetime import datetime
-
+from . import CredentialDetails
 
 SCOPES = ['https://mail.google.com/']
 
@@ -25,7 +25,6 @@ def create_plain_message(queryDict):
 
 
 def share_details_with_clinic(msgPlain):
-    import CredentialDetails
     creds = CredentialDetails.create_credentials_gmail()
     try:
         service = build('gmail', 'v1', credentials=creds)
