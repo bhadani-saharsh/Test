@@ -1,7 +1,4 @@
 from google.oauth2.credentials import Credentials
-import os.path
-from google.auth.transport.requests import Request
-from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from email.message import EmailMessage
@@ -28,13 +25,14 @@ def create_plain_message(queryDict):
 
 
 def share_details_with_clinic(msgPlain):
-    creds = create_credentials()
+    import CredentialDetails
+    creds = CredentialDetails.create_credentials_gmail()
     try:
         service = build('gmail', 'v1', credentials=creds)
         msg = EmailMessage()
         msg.set_content(msgPlain)
         msg['Subject'] = "New Appointment Booked by AI"
-        msg['From'] = "saharsh.bhadani.official@gmail.com"
+        msg['From'] = "Donotreply@DrBhadanisDentalClinic.com"
         msg['To'] = "Saharsh.Bhadani@gmail.com"
         # msg['To'] = "Dr.HarshitBhadani@gmail.com"
         message = {'raw': base64.urlsafe_b64encode(msg.as_bytes()).decode()}

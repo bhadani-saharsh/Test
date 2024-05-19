@@ -118,7 +118,8 @@ def create_audio_file_and_upload_to_drive(text, file_name):
 
 
 def upload_file_on_gdrive(file_to_upload, file_name):
-    creds = create_credentials()
+    import CredentialDetails
+    creds = CredentialDetails.create_credentials_drive()
     try:
         # create drive api client
         service = build("drive", "v3", credentials=creds)
@@ -147,14 +148,14 @@ def upload_file_on_gdrive(file_to_upload, file_name):
 
 def create_credentials():
     creds = Credentials(
-            token="ya29.a0AXooCgvmOu3rn86q2D0Vfb0628prVwCoJhvHwv9QXh42FXpmC5jA2dN_5pOXr7rC8ukHpBQbOE_RnyRr_KmRUSSbBpqSpTBjuZQ_I8cRP5oY_wFCOL0yxddp9v1_A9zz6U9OzJ0j4b351gfDwvpxmAEZmS1ylpzb7B0I4AaCgYKAccSARMSFQHGX2Mi3ewVZI520NgqUtapHwKRhQ0173",
-            refresh_token="1//0geZv5Ag6hshnCgYIARAAGBASNwF-L9IrxKFqz6IVvaOU_bWx1z3ZK6sdLm__sd_rr4zzQt8W4ET1yMzb_UA4FbxK0xMGAob4RY0",
-            token_uri="https://oauth2.googleapis.com/token",
-            client_id="267226879829-n4pr2506kdmj0s9prb9mder7c291bf5c.apps.googleusercontent.com",
-            client_secret="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",
-            scopes=["https://www.googleapis.com/auth/drive.file"],
-            universe_domain="googleapis.com",
-            account="",
+        token="ya29.a0AXooCguL6CAP7xUOaxZZjmV5NLiVX2mGPnT8GfdEeY3I3XGGvVudToF9G8Yjez8-EIVYrHzASeloiReQEKXeBdYTg8wsTr7bAeYqbAIpl83Vf-PuD38YLXJDWCgLO8iNx4EWW9bS2sHNvokhlUMUD3LZGXoiNIdMVmIYaCgYKAbgSARMSFQHGX2MifS8cT0a2CQsQRFnNx3J9_Q0171",
+        refresh_token="1//0g3S9m_pJYQ3aCgYIARAAGBASNwF-L9IrqQO5DjEyu3Kx8XEOIyvbeI2_9J-aayTqv8ljpEdKQLs8NsDlliahid1nY6hU2gl86yo",
+        token_uri="https://oauth2.googleapis.com/token",
+        client_id="267226879829-n4pr2506kdmj0s9prb9mder7c291bf5c.apps.googleusercontent.com",
+        client_secret="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",
+        scopes=["https://www.googleapis.com/auth/drive.file"],
+        universe_domain="googleapis.com",
+        account=""
         )
     return creds
 
