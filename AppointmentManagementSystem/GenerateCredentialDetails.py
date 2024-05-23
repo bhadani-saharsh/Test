@@ -2,7 +2,8 @@ from google.oauth2.credentials import Credentials
 import os
 from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
+import urllib.request
+
 
 SCOPES_DRIVE = ["https://www.googleapis.com/auth/drive.file"]
 SCOPE_EMAIL = ['https://mail.google.com/']
@@ -170,7 +171,12 @@ def delete_existing_files():
         print("gdrive-token-json.py does not exist.")
 
 
+def rewrite_json_file():
+    pass
+
+
 if __name__ == "__main__":
+    rewrite_json_file()
     delete_existing_files()
     generate_credentials_email()
     generate_credentials_drive()
